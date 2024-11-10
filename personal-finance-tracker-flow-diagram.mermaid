@@ -1,0 +1,29 @@
+graph TD
+    A["User"] -->|"Interacts with"| B["Frontend (React)"]
+    B -->|"Renders"| C["App Component"]
+    C -->|"Contains"| D["AuthContext Provider"]
+    C -->|"Routes to"| E["Login/Register"]
+    C -->|"Routes to"| F["Dashboard"]
+    C -->|"Routes to"| G["Transactions"]
+    C -->|"Routes to"| H["Profile"]
+    
+    D -->|"Provides auth state to"| F
+    D -->|"Provides auth state to"| G
+    D -->|"Provides auth state to"| H
+    
+    E -->|"Sends auth request"| I["Backend API"]
+    F -->|"Fetches data"| I
+    G -->|"Fetches/Adds data"| I
+    H -->|"Fetches/Updates data"| I
+    
+    I -->|"Authenticates"| J["JWT"]
+    I -->|"Queries/Updates"| K["MongoDB"]
+    
+    K -->|"Stores"| L["User Data"]
+    K -->|"Stores"| M["Transactions"]
+    
+    F -->|"Displays"| N["Financial Overview"]
+    F -->|"Shows"| O["Income vs Expenses Chart"]
+    G -->|"Lists"| P["Transaction History"]
+    G -->|"Allows"| Q["Add New Transaction"]
+    H -->|"Shows"| R["User Profile Info"]
