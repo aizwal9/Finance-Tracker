@@ -106,7 +106,7 @@ function Login() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     try {
-      const response = await fetch('http://localhost:5001/api/login', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -172,7 +172,7 @@ function Register() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     try {
-      const response = await fetch('http://localhost:5001/api/register', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -254,7 +254,7 @@ export default function App() {
     const token = localStorage.getItem('token')
     if (token) {
       try {
-        const response = await fetch('http://localhost:5001/api/profile', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/api/profile', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

@@ -30,7 +30,7 @@ export default function Transactions() {
     const fetchTransactions = async () => {
         const token = localStorage.getItem('token')
         try {
-            const response = await fetch('http://localhost:5001/api/transactions', {
+            const response = await fetch(import.meta.env.VITE_API_URL + '/api/transactions', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -53,7 +53,7 @@ export default function Transactions() {
         e.preventDefault()
         const token = localStorage.getItem('token')
         try {
-            const response = await fetch('http://localhost:5001/api/transactions', {
+            const response = await fetch(import.meta.env.VITE_API_URL + '/api/transactions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
